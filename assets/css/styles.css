@@ -1,0 +1,86 @@
+body {
+  font-family: "Tajawal", sans-serif;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  height: 100vh;
+  padding-bottom: 40px;
+}
+
+body.arabic {
+  direction: rtl;
+}
+
+body.english {
+  direction: ltr;
+}
+
+.nav-tabs {
+  direction: rtl;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 700;
+}
+
+.nav-link.active {
+  color: #1aa27d !important;
+}
+
+.top-bar-icons .paperclip {
+  position: relative;
+}
+
+.top-bar-icons a {
+  font-size: 18px;
+  color: #9a9a9a;
+  position: relative;
+}
+
+.top-bar-icons .fa-paperclip::after {
+  content: "1";
+  position: absolute;
+  color: white;
+  width: 16px;
+  height: 16px;
+  background-color: #1aa27d !important;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 11px;
+  top: -10px;
+  left: 7px;
+}
+
+.status {
+  background-color: #ddd9d9;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-weight: 700;
+}
+
+#solution-time {
+  font-weight: 700;
+}
+
+/* Add scroll effect to the accordion container */
+.accordion {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+/* Customize the color of the accordion headers */
+.accordion-button {
+  background-color: #f8f9fa;
+  color: #1aa27d;
+  font-weight: 700;
+}
+
+/* Change the color of the scrollbar */
+.accordion::-webkit-scrollbar {
+  width: 10px;
+}
+
+.accordion::-webkit-scrollbar-thumb {
+  background-color: #1aa27d;
+}

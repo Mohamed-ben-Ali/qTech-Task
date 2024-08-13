@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Screen Interface</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-12 d-flex justify-content-between align-items-center border-bottom pb-2 pt-2 rounded-4">
+                    <div class="status">
+                        <span id="status-text" class="text-success ms-2 me-2" data-lang-ar="خارج الوقت المحدد" data-lang-en="Out of time">خارج الوقت
+                            المحدد</span>
+                        <span id="approval-status" data-lang-ar="غير معتمد" data-lang-en="Not Approved">غير معتمد</span>
+                    </div>
+                    <div class="top-bar-date-time">
+                        <span id="time">00:00:00</span> -
+                        <span id="solution-time" class="text-success bold" data-lang-ar="وقت حل البلاغ"
+                            data-lang-en="Solution Time">وقت حل البلاغ</span>
+                        <span><i class="fa-regular fa-clock"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Language Switcher -->
+    <div class="container-fluid my-4">
+        <div class="d-flex justify-content-end ">
+            <button id="en-btn" class="btn btn-primary me-2">EN</button>
+            <button id="ar-btn" class="btn btn-primary me-2">AR</button>
+        </div>
+    </div>
+    </div>
+    <div class="top-Bare d-flex justify-content-between align-items-center flex-row-reverse"
+        style="border-bottom: 1px solid #ccc;">
+        <!-- Screens Navigation -->
+        <ul class="nav nav-tabs" id="screenTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="screen1-tab" data-bs-toggle="tab" data-bs-target="#" type="button"
+                    role="tab">العناصر المطلوبة</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="screen2-tab" data-bs-toggle="tab" data-bs-target="#screen1"
+                    type="button" role="tab">أصول الموظف</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="screen3-tab" data-bs-toggle="tab" data-bs-target="#" type="button"
+                    role="tab">خطوات البلاغ</button>
+            </li>
+        </ul>
+
+        <!-- Icons -->
+        <div class="top-bar-icons d-flex ms-3">
+            <a href="#" class="me-2 ms-2">
+                <i class="fa-regular fa-comments"></i>
+            </a>
+            <a href="#" id="report" class="me-2 ms-2 ">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </a>
+            <a href="#" class="me-2 ms-2">
+                <i class="fa-solid fa-paperclip"></i>
+            </a>
+            <a href="#" class="me-2 ms-2">
+                <i class="fa-solid fa-link"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="tab-content mt-2 mb-5" id="screenTabsContent">
+        <div class="tab-pane fade show active" id="screen1" role="tabpanel">
+            <!-- Screen 1 Content Here -->
+            <div class="row flex-row-reverse">
+                <div id="screen1-content" class="col-md-12">
+                    <div class="position-relative">
+                        <div class="card pt-4 pb-4 pe-2 ps-2">
+                            <!-- Expand/Collapse Icon -->
+                            <i id="toggle-icon1"
+                                class="toggle-icon fa-solid fa-down-left-and-up-right-to-center position-absolute d-none"
+                                style="right: 0; top: 0; cursor: pointer; color: #9a9a;"></i>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th id="date-header">التاريخ</th>
+                                            <th id="status-header">الحالة</th>
+                                            <th id="barcode-header">رمز الباركود</th>
+                                            <th id="serial-header">الرقم التسلسلي</th>
+                                            <th id="version-header">رقم الإصدار</th>
+                                            <th id="brand-header">العلامة التجارية</th>
+                                            <th id="category-header">فئة العنصر</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <tr>
+                                            <td>23/01/2024</td>
+                                            <td>جديد</td>
+                                            <td>3C3-117-1NM-OY1-530</td>
+                                            <td>1308</td>
+                                            <td>6565</td>
+                                            <td>آبل</td>
+                                            <td>لابتوب</td>
+                                        </tr>
+                                        <tr>
+                                            <td>03/03/2024</td>
+                                            <td>جديد</td>
+                                            <td>N7P-6JH-O2Q-R91-530</td>
+                                            <td>1990</td>
+                                            <td>2</td>
+                                            <td>آبل</td>
+                                            <td>keyboard</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20/03/2024</td>
+                                            <td>تالف</td>
+                                            <td>441-OY7-3JI-171-531</td>
+                                            <td>1215</td>
+                                            <td>samsung</td>
+                                            <td>headphones</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/04/2021</td>
+                                            <td>مستعمل</td>
+                                            <td>3UU-O06-111-1X1-531</td>
+                                            <td>20214</td>
+                                            <td>samsung</td>
+                                            <td>لابتوب</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18/03/2021</td>
+                                            <td>جديد</td>
+                                            <td>K81-WO1-7IS-X21-554</td>
+                                            <td>101050</td>
+                                            <td>457895</td>
+                                            <td>ديل زيرو</td>
+                                            <td>لابتوب</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12/11/2023</td>
+                                            <td>تالف</td>
+                                            <td>4FL-ZN3-X22-701-554</td>
+                                            <td>0906</td>
+                                            <td>samsung</td>
+                                            <td>headphones</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/11/2023</td>
+                                            <td>تالف</td>
+                                            <td>UQO-QYY-Q01-554-061</td>
+                                            <td>0105</td>
+                                            <td>samsung</td>
+                                            <td>headphones</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/11/2023</td>
+                                            <td>مستعمل</td>
+                                            <td>2GZ-128-LU3-YB1-554</td>
+                                            <td>0903</td>
+                                            <td>samsung</td>
+                                            <td>headphones</td>
+                                        </tr>
+                                        <tr>
+                                            <td>27/03/2024</td>
+                                            <td>زيرو</td>
+                                            <td>8FO-62B-595-7D1-557</td>
+                                            <td>8585858585888</td>
+                                            <td>آبل</td>
+                                            <td>keyboard</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/11/2023</td>
+                                            <td>مستعمل</td>
+                                            <td>5AE-1AN-2D4-731-557</td>
+                                            <td>205</td>
+                                            <td>آبل</td>
+                                            <td>keyboard</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="screen2-content" class="col-md-4 d-none">
+                    <div class="card pt-4 pb-4 pe-2 ps-2">
+                        <!-- Expand/Collapse Icon -->
+                        <i id="toggle-icon2"
+                            class="toggle-icon fa-solid fa-down-left-and-up-right-to-center position-absolute d-none"
+                            style="right: 0; top: 0; cursor: pointer; color: #9a9a;"></i>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button id="accordion-header-1" class="accordion-button" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        تقديم بلاغ
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-1" class="accordion-body">
+                                        قام الموظف مصطفى عادل محمود عبد الغني بإدارة الإدارة العامة بمهمة موظف
+                                        بإضافة هذا البلاغ.
+                                        <div class="text-muted small">14:07 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button id="accordion-header-2" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        قبول البلاغ من المراجع
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-2" class="accordion-body">
+                                        تم قبول البلاغ من قبل المراجع.
+                                        <div class="text-muted small">14:09 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button id="accordion-header-3" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        إحالة البلاغ
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-3" class="accordion-body">
+                                        تم إحالة البلاغ إلى القسم المعني.
+                                        <div class="text-muted small">14:13 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button id="accordion-header-4" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        إرسال البلاغ إلى المخزن
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-4" class="accordion-body">
+                                        تم إرسال البلاغ إلى المخزن.
+                                        <div class="text-muted small">14:15 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button id="accordion-header-5" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        سحب العنصر
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                    data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-5" class="accordion-body">
+                                        تم سحب العنصر من المخزن.
+                                        <div class="text-muted small">14:17 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button id="accordion-header-6" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">
+                                        إعادة الإرسال للمخزن
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                    data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-6" class="accordion-body">
+                                        تم إعادة إرسال البلاغ إلى المخزن.
+                                        <div class="text-muted small">14:19 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button id="accordion-header-7" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        إرجاع إلى المخزن
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-7" class="accordion-body">
+                                        تم إرجاع العنصر إلى المخزن.
+                                        <div class="text-muted small">14:21 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEight">
+                                    <button id="accordion-header-8" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false"
+                                        aria-controls="collapseEight">
+                                        سحب العنصر
+                                    </button>
+                                </h2>
+                                <div id="collapseEight" class="accordion-collapse collapse"
+                                    aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div id="accordion-body-8" class="accordion-body">
+                                        تم سحب العنصر مرة أخرى.
+                                        <div class="text-muted small">16:26 | 17/01/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
