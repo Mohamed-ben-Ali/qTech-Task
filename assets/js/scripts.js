@@ -15,15 +15,20 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.setAttribute('dir', 'rtl');
             document.body.classList.add('arabic');
             document.body.classList.remove('english');
+            document.querySelectorAll('[data-lang="ar"]').forEach(el => el.classList.remove('d-none'));
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.classList.add('d-none'));
         } else {
             document.body.setAttribute('dir', 'ltr');
             document.body.classList.add('english');
             document.body.classList.remove('arabic');
+            document.querySelectorAll('[data-lang="ar"]').forEach(el => el.classList.add('d-none'));
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.classList.remove('d-none'));
         }
     }
 
     arBtn.addEventListener('click', () => switchLanguage('ar'));
     enBtn.addEventListener('click', () => switchLanguage('en'));
+
     // Optional: Set default language based on browser or user preference
     const defaultLang = 'ar'; // or 'en'
     switchLanguage(defaultLang);
